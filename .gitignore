@@ -1,0 +1,21 @@
+.DS_Store
+Thumbs.db
+*.log
+*.tmp
+*.swp
+*.swo
+.idea/
+.vscode/
+.history/
+.cache/
+node_modules/
+vendor/
+coverage/
+
+# PHP tooling and test caches
+.phpunit.result.cache
+.php-cs-fixer.cache
+
+# Environment files
+.env
+.env.*

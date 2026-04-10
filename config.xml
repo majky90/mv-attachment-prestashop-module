@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<module>
+  <name>mv_attachment</name>
+  <displayName>E-mail Attachments</displayName>
+  <version>1.0.9</version>
+  <description>The module makes it easy to insert any required documents directly into e-mail.</description>
+  <author>Marián Varga</author>
+  <tab>administration</tab>
+  <is_configurable>1</is_configurable>
+  <need_instance>0</need_instance>
+  <limited_countries></limited_countries>
+</module>
