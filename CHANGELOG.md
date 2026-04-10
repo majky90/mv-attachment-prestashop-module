@@ -1,110 +1,119 @@
 # Changelog
 
+## [1.1.0] - 2026-04-10
+
+### Added
+- Added upgrade script `upgrade/upgrade-1.1.0.php` for reliable in-place updates without uninstall/reinstall.
+
+### Changed
+- Upgrade flow now ensures required DB schema, upload directory hardening files, and mail hooks during update.
+- Bumped module version to `1.1.0`.
+
 ## [1.0.9] - 2026-04-09
 
 ### Fixed
-- Opravene odosielanie e-mailov so ZIP prilohou: priloha sa pridava iba do jedneho cieloveho pola mail parametrov podla aktualneho mail flow.
-- Pre ZIP je pri odoslani znormalizovany MIME typ na `application/zip`.
+- Fixed sending e-mails with ZIP attachments: the attachment is now added only to one target mail parameter field according to the active mail flow.
+- For ZIP files, outgoing MIME type is normalized to `application/zip`.
 
 ### Changed
-- Navysena verzia modulu na `1.0.9`.
+- Bumped module version to `1.0.9`.
 
 ## [1.0.8] - 2026-04-09
 
 ### Fixed
-- Upgrade skripty boli upravene na non-blocking rezim, aby update modulu nezlyhal bez vypisu chyby.
-- Pridany fallback upgrade krok `upgrade/upgrade-1.0.8.php` vracajuci `true` pre spolahlive obnovenie update flow.
+- Updated upgrade scripts to non-blocking mode so module updates do not fail silently.
+- Added fallback upgrade step `upgrade/upgrade-1.0.8.php` returning `true` for reliable recovery of the update flow.
 
 ### Changed
-- Navysena verzia modulu na `1.0.8`.
+- Bumped module version to `1.0.8`.
 
 ## [1.0.7] - 2026-04-09
 
 ### Fixed
-- Opravene duplicity e-mail sablon v selecte aj pre pripady viacnasobnych pripon (`.html.twig`).
-- Doplnena kompatibilita nacitavania priloh aj pre starsie ulozene nazvy sablon (`template`, `template.html`, `template.txt`, `template.twig`, `template.html.twig`).
+- Fixed duplicate e-mail templates in the select list, including cases with multiple extensions (`.html.twig`).
+- Added compatibility for loading attachments with older stored template names (`template`, `template.html`, `template.txt`, `template.twig`, `template.html.twig`).
 
 ### Added
-- Rozsirena podpora priloh o: `RAR`, `TXT`, `DOCX`, `XLS`, `XLSX`, `ODT`, `ODS`, `PNG`, `JPG`, `GIF`.
+- Extended attachment support with: `RAR`, `TXT`, `DOCX`, `XLS`, `XLSX`, `ODT`, `ODS`, `PNG`, `JPG`, `GIF`.
 
 ### Changed
-- Navysena verzia modulu na `1.0.7`.
+- Bumped module version to `1.0.7`.
 
 ## [1.0.6] - 2026-04-09
 
 ### Fixed
-- Opravene duplicity v zozname e-mailovych sablon: sablony sa teraz deduplikuju podla normalizovaneho nazvu (bez pripony a bez rozlisenia velkosti pismen).
+- Fixed duplicates in the e-mail template list: templates are now deduplicated by normalized name (without extension and case-insensitive).
 
 ### Changed
-- Nazov sablony sa interne normalizuje na lowercase pre konzistentne mapovanie medzi `.html`, `.txt` a `.twig` variantami.
-- Navysena verzia modulu na `1.0.6`.
+- Template names are now internally normalized to lowercase for consistent mapping between `.html`, `.txt`, and `.twig` variants.
+- Bumped module version to `1.0.6`.
 
 ## [1.0.5] - 2026-04-09
 
 ### Fixed
-- Opravene upgrade skripty tak, aby neboli zavisle na explicitnom `instanceof mv_attachment`.
-- Pridany dalsi upgrade krok `upgrade/upgrade-1.0.5.php` pre spolahlive opakovane spustenie update po zlyhani predchadzajuceho pokusu.
+- Fixed upgrade scripts so they are no longer dependent on explicit `instanceof mv_attachment` checks.
+- Added another upgrade step `upgrade/upgrade-1.0.5.php` for reliable repeated update execution after a previous failed attempt.
 
 ### Changed
-- Navysena verzia modulu na `1.0.5`.
+- Bumped module version to `1.0.5`.
 
 ## [1.0.4] - 2026-04-09
 
 ### Added
-- Pridany upgrade skript `upgrade/upgrade-1.0.4.php` pre spolahlive nasadenie pri update z predoslych verzii.
+- Added upgrade script `upgrade/upgrade-1.0.4.php` for reliable deployment when updating from previous versions.
 
 ### Changed
-- Navysena verzia modulu na `1.0.4` pre jednoznacny upgrade path z `1.0.2`/`1.0.3`.
+- Bumped module version to `1.0.4` for a clear upgrade path from `1.0.2`/`1.0.3`.
 
 ## [1.0.3] - 2026-04-09
 
 ### Added
-- Doplnena ochrana proti duplicitnemu pridaniu rovnakej prilohy pri viacerych mail hookoch v jednom toku.
-- Doplneny limit velkosti uploadu (5 MB).
+- Added protection against duplicate insertion of the same attachment when multiple mail hooks run in one flow.
+- Added upload size limit (5 MB).
 
 ### Changed
-- Rozsirene nacitanie e-mail sablon pre PS8/PS9 aj o `.txt` a `.twig` (okrem `.html`).
-- Sprisnena validacia MIME typu pri nahravani suboru (MIME musi byt detegovatelny a povoleny).
-- Zjednotena normalizacia nazvu sablony aj pri ukladani formulare.
-- Navysena verzia modulu na `1.0.3`.
+- Extended e-mail template loading for PS8/PS9 to include `.txt` and `.twig` (in addition to `.html`).
+- Tightened MIME type validation during file upload (MIME must be detectable and allowed).
+- Unified template name normalization during form save.
+- Bumped module version to `1.0.3`.
 
 ## [1.0.2] - 2026-04-09
 
 ### Added
-- Pridany slovensky preklad pre administraciu modulu cez subor `translations/sk.php`.
-- Kod modulu zostava v predvolenom anglickom jazyku, lokalizacia je riesena samostatnym prekladom.
+- Added Slovak translation for module administration via `translations/sk.php`.
+- Module code remains in default English; localization is handled by separate translations.
 
 ### Changed
-- Navysena verzia modulu na `1.0.2`.
+- Bumped module version to `1.0.2`.
 
 ## [1.0.1] - 2026-04-09
 
 ### Added
-- Doplnena kompatibilita pre rozne mail flow v PrestaShop 8/9 cez fallback hook `actionEmailSendBefore`.
-- Doplnena interna metoda pre spolocne spracovanie e-mail parametrov a pridavanie priloh.
-- Doplnena normalizacia nazvu sablony (odstranenie cesty a koncovky `.html`, `.txt`, `.twig`).
-- Doplnena automaticka registracia hookov pri otvoreni konfiguracie modulu (bez nutnosti reinstall).
-- Pridany upgrade skript `upgrade/upgrade-1.0.1.php`.
-- Doplnena validacia, ze `template_name` je mozne ulozit iba zo zoznamu dostupnych e-mail sablon.
-- Doplnena automaticka pripona v nazve prilohy pre e-mail, ak `display_name` priponu neobsahuje.
+- Added compatibility for different mail flows in PrestaShop 8/9 via fallback hook `actionEmailSendBefore`.
+- Added internal method for shared e-mail parameter processing and attachment injection.
+- Added template name normalization (remove path and `.html`, `.txt`, `.twig` suffixes).
+- Added automatic hook registration when opening module configuration (no reinstall needed).
+- Added upgrade script `upgrade/upgrade-1.0.1.php`.
+- Added validation that `template_name` can be saved only from available e-mail templates list.
+- Added automatic extension in e-mail attachment name when `display_name` has no extension.
 
 ### Changed
-- BO formular pouziva vyber sablony cez `select` (nie volny text).
-- Vnutorna mail logika doplna prilohy do `attachments` aj `fileAttachment` pre lepsiu kompatibilitu.
+- Back-office form now uses template selection via `select` (not free text).
+- Internal mail logic now adds attachments to both `attachments` and `fileAttachment` for better compatibility.
 
 ### Fixed
-- Opraveny scenar, ked sa priloha nezobrazila v e-maile napriek aktivnemu zaznamu.
+- Fixed case where attachment was not shown in e-mail despite an active record.
 
 ## [1.0.0] - 2026-04-09
 
 ### Added
-- Inicialna verzia modulu `mv_attachment`.
-- Vytvorenie DB tabulky `ps_mv_attachment` pri instalacii.
-- Odstranenie DB tabulky a upload priecinka pri uninstall.
-- BO zoznam priloh cez `HelperList`.
-- BO formular cez `HelperForm` pre pridanie a upravu prilohy.
-- Upload dokumentov (PDF, ZIP, DOC) do `/upload/mv_attachment/`.
-- Ukladanie metadat: `display_name`, `template_name`, `id_lang`, `file_mime`, `active`.
-- Hook `actionMailSendBeforeOut` pre dynamicke pripajanie priloh podla sablony a jazyka.
-- Bezpecnostne prvky upload adresara (`index.php`, `.htaccess`).
-- Post-submit redirect po create/update/delete pre cistu URL a bezpecne obnovenie stranky.
+- Initial release of module `mv_attachment`.
+- Create DB table `ps_mv_attachment` on install.
+- Remove DB table and upload folder on uninstall.
+- Back-office attachment list via `HelperList`.
+- Back-office form via `HelperForm` for creating and editing attachments.
+- Document upload (PDF, ZIP, DOC) to `/upload/mv_attachment/`.
+- Store metadata: `display_name`, `template_name`, `id_lang`, `file_mime`, `active`.
+- Hook `actionMailSendBeforeOut` for dynamic attachment injection by template and language.
+- Upload directory hardening (`index.php`, `.htaccess`).
+- Post-submit redirect after create/update/delete for clean URL and safe page refresh.

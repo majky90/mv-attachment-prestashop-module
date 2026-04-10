@@ -6,9 +6,9 @@ PrestaShop module for attaching files to outgoing e-mails based on template and 
 
 ### Compatibility
 
-- PrestaShop 8.x
+- PrestaShop 8.x, 9.x
 - Module: `mv_attachment`
-- Current version: `1.0.9`
+- Current version: `1.1.0`
 
 ### Installation
 
@@ -42,9 +42,9 @@ PrestaShop modul pre dynamicke pripajanie priloh k e-mailom podla sablony a jazy
 
 ### Kompatibilita
 
-- PrestaShop 8.x
+- PrestaShop 8.x, 9.x
 - Modul: `mv_attachment`
-- Aktualna verzia: `1.0.9`
+- Aktualna verzia: `1.1.0`
 
 ### Instalacia
 

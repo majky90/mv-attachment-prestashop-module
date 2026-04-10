@@ -42,7 +42,7 @@ class mv_attachment extends Module
     {
         $this->name = 'mv_attachment';
         $this->tab = 'administration';
-        $this->version = '1.0.9';
+        $this->version = '1.1.0';
         $this->author = 'Marián Varga';
         $this->need_instance = 0;
         $this->bootstrap = true;
