@@ -19,3 +19,6 @@ coverage/
 # Environment files
 .env
 .env.*
+
+# Release artifacts
+*.zip
