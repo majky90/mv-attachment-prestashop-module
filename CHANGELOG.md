@@ -1,5 +1,14 @@
 # Changelog
 
+## [1.1.1] - 2026-04-10
+
+### Fixed
+- Added a conservative upgrade step for more reliable updates in PrestaShop 9 environments.
+- Added internal logging in upgrade step to simplify diagnostics when update fails in BO with generic error.
+
+### Changed
+- Bumped module version to `1.1.1`.
+
 ## [1.1.0] - 2026-04-10
 
 ### Added

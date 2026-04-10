@@ -2,7 +2,7 @@
 <module>
   <name>mv_attachment</name>
   <displayName>E-mail Attachments</displayName>
-  <version>1.1.0</version>
+  <version>1.1.1</version>
   <description>The module makes it easy to insert any required documents directly into e-mail.</description>
   <author>Marián Varga</author>
   <tab>administration</tab>
